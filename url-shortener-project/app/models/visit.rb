@@ -15,11 +15,9 @@ class Visit < ApplicationRecord
         foreign_key: :user_id,
         class_name: :User
 
-    has_many :visits,
-        through: :user,
-        source: :visitors
+    belongs_to :shortened_url
+        primary_key: :id,
+        foreign_key: :user_id
 
-    # def self.record_visit!(user, shortened_url)
 
-    # end
 end

@@ -22,7 +22,8 @@ class Course < ApplicationRecord
     belongs_to :prerequisite, 
         foreign_key: :prereq_id,
         class_name: :Course,
-        #if a course doesn't have a prereq it is going to break b/c belongs_to automatically creates a validation for presence
+        #if a course doesn't have a prereq, code will break when belongs_to runs 
+        # bc it implicitly validates that the foreign_key exists
             #this prevents that from happening
         optional: true
 
